@@ -16,15 +16,19 @@
 
 </head>
 
-<body>
+<body onclick="togglePlayPause()">
     <div class="tree"></div>
     <audio id="myAudio" controls>
         <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Simon_Panrucker/Happy_Christmas_You_Guys/Simon_Panrucker_-_01_-_Snowflakes_Falling_Down.mp3" type="audio/mp3">
-        Your browser does not support the audio tag.
     </audio>
     <style type="text/css" media="screen">
                 audio {
-            display: none;
+                    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5%;
         }
         input{
             pointer-events: none;
@@ -373,21 +377,16 @@
             g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g, s);
         })(document, 'script');
-        document.addEventListener("DOMContentLoaded", function() {
+        function togglePlayPause() {
             var audio = document.getElementById("myAudio");
-            
-            // 检查是否支持自动播放
-            var playPromise = audio.play();
-            if (playPromise !== undefined) {
-                playPromise.then(function() {
-                    // 音频已成功播放
-                    console.log("Audio is playing...");
-                }).catch(function(error) {
-                    // 自动播放被阻止，可以在此处处理
-                    console.error("Auto-play blocked:", error);
-                });
+
+            // 如果音频正在播放，暂停它；如果暂停，播放它
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
             }
-        });
+        }
     </script>
 
 </body>
