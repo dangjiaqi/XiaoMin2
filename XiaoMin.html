@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-    <title>DOM Tree</title>
+    <title>季思敏 圣诞快乐</title>
 
 
     <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'>
@@ -19,7 +19,7 @@
 <body onclick="togglePlayPause()">
     <div class="tree"></div>
     <audio id="myAudio" controls>
-        <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Simon_Panrucker/Happy_Christmas_You_Guys/Simon_Panrucker_-_01_-_Snowflakes_Falling_Down.mp3" type="audio/mp3">
+        <source src="demo.mp3" type="audio/mp3">
     </audio>
     <style type="text/css" media="screen">
                 audio {
@@ -373,14 +373,17 @@
             s.parentNode.insertBefore(g, s);
         })(document, 'script');
         function togglePlayPause() {
-            var audio = document.getElementById("myAudio");
+            var audio = document.getElementById('myAudio');
+            audio.currentTime = 16; // 设置起始时间为16秒
+        audio.play(); // 播放音频
+            // var audio = document.getElementById("myAudio");
 
-            // 如果音频正在播放，暂停它；如果暂停，播放它
-            if (audio.paused) {
-                audio.play();
-            } else {
-                // audio.pause();
-            }
+            // // 如果音频正在播放，暂停它；如果暂停，播放它
+            // if (audio.paused) {
+            //     audio.play();
+            // } else {
+            //     // audio.pause();
+            // }
         }
     </script>
 
