@@ -23,12 +23,7 @@
     </audio>
     <style type="text/css" media="screen">
                 audio {
-                    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 5%;
+                    display: none
         }
         input{
             pointer-events: none;
@@ -272,7 +267,7 @@
         const height = 600;
         const quantity = 150;
         const types = ['text', 'select', 'progress', 'meter', 'button', 'radio', 'checkbox'];
-        const greetings = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', ' 12', '13', '14', '15', '16', '17', '18'];
+        const greetings = ['小敏圣诞快乐', 'Merry Christmas', '年末将至 平安喜乐', '希望你开心幸福', '过得开心', '光是遇见就已经很美好了', '希望你能遇到心软的神', '圣诞快乐 你和平安一样重要', '圣诞是冬的来信', '希望你永远可以像娜娜一样', '你就按照你喜欢的方式生活吧', ' 小敏，我已经没法成为你故事的主人公了', '你会遇到那个守护你的骑士', '老是逞强 幸福会溜走的哦', '你花园的花一定会开', '谢谢你季思敏', '人都是独立的个体', '爱真的可以把两个人联系在一起吧'];
         let tree = document.querySelector('.tree'),
             treeRotation = 0;
 
@@ -384,7 +379,7 @@
             if (audio.paused) {
                 audio.play();
             } else {
-                audio.pause();
+                // audio.pause();
             }
         }
     </script>
