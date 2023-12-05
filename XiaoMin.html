@@ -9,21 +9,49 @@
 
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-    <title>季思敏 圣诞快乐</title>
+    <title>DOM Tree</title>
 
 
     <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'>
 
 </head>
 
-<body onclick="togglePlayPause()">
+<body >
+    <div id="overlay">
+        <button onclick="hideOverlay()">Merry Christmas</button>
+    </div>
     <div class="tree"></div>
     <audio id="myAudio" controls>
-        <source src="demo.mp3" type="audio/mp3">
+        <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Simon_Panrucker/Happy_Christmas_You_Guys/Simon_Panrucker_-_01_-_Snowflakes_Falling_Down.mp3" type="audio/mp3">
     </audio>
     <style type="text/css" media="screen">
+                body {
+            margin: 0;
+            overflow: hidden; /* 隐藏页面滚动条 */
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 1); /* 半透明黑色背景 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #overlay button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
                 audio {
-                    display: none
+                display: none;
         }
         input{
             pointer-events: none;
@@ -254,6 +282,7 @@
             animation: spin 18s infinite linear;
             transform-origin: 50% 0;
             transform-style: preserve-3d;
+            z-index: -1;
         }
 
         .tree * {
@@ -372,18 +401,17 @@
             g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g, s);
         })(document, 'script');
-        function togglePlayPause() {
+        function showOverlay() {
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'flex';
+        }
+
+        function hideOverlay() {
+            var overlay = document.getElementById('overlay');
             var audio = document.getElementById('myAudio');
             audio.currentTime = 16; // 设置起始时间为16秒
         audio.play(); // 播放音频
-            // var audio = document.getElementById("myAudio");
-
-            // // 如果音频正在播放，暂停它；如果暂停，播放它
-            // if (audio.paused) {
-            //     audio.play();
-            // } else {
-            //     // audio.pause();
-            // }
+            overlay.style.display = 'none';
         }
     </script>
 
