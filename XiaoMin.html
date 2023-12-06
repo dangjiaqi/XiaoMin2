@@ -16,19 +16,18 @@
 
 </head>
 
-<body>
+<body >
     <div id="overlay">
         <button onclick="hideOverlay()">季思敏 Merry Christmas</button>
     </div>
     <div class="tree"></div>
-    <audio id="myAudio" controls>
+    <audio id="myAudio" autoplay preload controls loop>
         <source src="demo.mp3" type="audio/mp3">
     </audio>
     <style type="text/css" media="screen">
-        body {
+                body {
             margin: 0;
-            overflow: hidden;
-            /* 隐藏页面滚动条 */
+            overflow: hidden; /* 隐藏页面滚动条 */
         }
 
         #overlay {
@@ -37,8 +36,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 1);
-            /* 半透明黑色背景 */
+            background: rgba(0, 0, 0, 1); /* 半透明黑色背景 */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -52,15 +50,12 @@
             border: none;
             cursor: pointer;
         }
-
-        audio {
-            display: none;
+                audio {
+                display: none;
         }
-
-        input {
+        input{
             pointer-events: none;
         }
-
         .project-title {
             position: absolute;
             left: 25px;
@@ -406,37 +401,18 @@
             g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g, s);
         })(document, 'script');
-    
-        var audio = document.getElementById('myAudio');
+        function showOverlay() {
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'flex';
+        }
+
         function hideOverlay() {
-            
+            var overlay = document.getElementById('overlay');
+            var audio = document.getElementById('myAudio');
             audio.currentTime = 16; // 设置起始时间为16秒
-            audio.play(); // 播放音频
-            checkAudioPlaying()
+        audio.play(); // 播放音频
+            overlay.style.display = 'none';
         }
-        function checkAudioPlaying() {
-            if (audio.paused) {
-                console.log('音频当前处于暂停状态');
-            } else {
-                var overlay = document.getElementById('overlay');
-                overlay.style.display = 'none';
-                console.log('音频正在播放');
-            }
-        }
-
-        // 检查音频状态
-        checkAudioPlaying();
-
-        // 添加播放状态改变事件监听器
-        audio.addEventListener('play', function () {
-            console.log('音频开始播放');
-            checkAudioPlaying();
-        });
-
-        audio.addEventListener('pause', function () {
-            console.log('音频暂停');
-            checkAudioPlaying();
-        });
     </script>
 
 </body>
