@@ -421,6 +421,8 @@
             if (audio.paused) {
                 console.log('音频当前处于暂停状态');
             } else {
+                var overlay = document.getElementById('overlay');
+                overlay.style.display = 'none';
                 console.log('音频正在播放');
             }
         }
@@ -431,9 +433,6 @@
         // 添加播放状态改变事件监听器
         audio.addEventListener('play', function () {
             console.log('音频开始播放');
-            var overlay = document.getElementById('overlay');
-            overlay.style.display = 'none';
-
             checkAudioPlaying();
         });
 
