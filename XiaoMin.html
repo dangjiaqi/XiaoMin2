@@ -406,16 +406,13 @@
             g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g, s);
         })(document, 'script');
-        function showOverlay() {
-            var overlay = document.getElementById('overlay');
-            overlay.style.display = 'flex';
-        }
+    
         var audio = document.getElementById('myAudio');
         function hideOverlay() {
             
-            var audio = document.getElementById('myAudio');
             audio.currentTime = 16; // 设置起始时间为16秒
             audio.play(); // 播放音频
+            checkAudioPlaying()
         }
         function checkAudioPlaying() {
             if (audio.paused) {
