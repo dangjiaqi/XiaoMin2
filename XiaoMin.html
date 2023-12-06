@@ -421,6 +421,9 @@ audio.addEventListener('canplay', function() {
   var overlay = document.getElementById('overlay');
   overlay.style.display = 'none';
 });
+audio.addEventListener('error', function() {
+    console.log('音频加载失败！');
+  });
     </script>
 
 </body>
