@@ -18,7 +18,8 @@
 
 <body >
     <div id="overlay">
-        <button onclick="hideOverlay()">季思敏 Merry Christmas</button>
+        <!-- <button onclick="hideOverlay()">alksjdlkasdlk</button> -->
+        <button id="christmasButton" onclick="hideOverlay()">季思敏 Merry Christmas</button>
     </div>
     <div class="tree"></div>
     <audio id="myAudio" autoplay preload controls loop>
@@ -29,7 +30,20 @@
             margin: 0;
             overflow: hidden; /* 隐藏页面滚动条 */
         }
+        #christmasButton {
+  background-color: #d9534f; /* Red */
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
+#christmasButton:hover {
+  background-color: #5cb85c; /* Green */
+}
         #overlay {
             position: fixed;
             top: 0;
